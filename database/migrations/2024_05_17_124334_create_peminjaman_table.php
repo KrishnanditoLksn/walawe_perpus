@@ -10,17 +10,17 @@ return new class extends Migration {
      */
     public function up(): void
     {
-
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->id('id_peminjaman')->primary();
             $table->bigInteger('id_member')->unsigned();
+            $table->unsignedBigInteger('id');
             $table->timestamp('tanggal_dipinjam')->useCurrent();
             $table->timestamp('tanggal_dikembalikan')->useCurrent();
             $table->timestamps();
             $table->foreign('id_member')->references('id')->on('member');
+            $table->foreign('id')->references('id')->on('copy_books');
         });
     }
-
     /**
      * Reverse the migrations.
      */
