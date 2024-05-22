@@ -11,7 +11,7 @@ class Admin extends Model
 
     protected $fillable = ['nama_admin', 'password', 'email'];
 
-
+    //Relationship antara admin dengan buku
     public function to_admin_buku(): HasMany
     {
         return $this->hasMany(Book::class);
