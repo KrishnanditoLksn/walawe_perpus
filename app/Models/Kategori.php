@@ -11,7 +11,7 @@ class Kategori extends Model
     protected $fillable = ['nama_kategori'];
 
     //Relationship Kategori dengan Buku
-    public function to_book_kategori(): HasMany
+    public function category_rels_book(): HasMany
     {
         return $this->hasMany(Book::class);
     }

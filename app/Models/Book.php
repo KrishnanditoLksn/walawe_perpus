@@ -15,7 +15,7 @@ class Book extends Model
     //Relationship Book to Copy Books
     public function to_copy(): void
     {
-
+        
     }
 
     //Relationship Book to Admin
