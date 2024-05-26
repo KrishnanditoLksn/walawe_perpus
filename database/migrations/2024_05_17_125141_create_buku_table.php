@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('nama_penulis');
             $table->char('isbn');
             $table->string('penerbit');
-            $table->date('tanggal_terbit');
+            $table->year('tahun_terbit');
             $table->bigInteger('id_kategori_buku')->unsigned();
             $table->foreign('id_kategori_buku')->references('id')->on('kategori');
             $table->timestamps();
