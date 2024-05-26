@@ -4,6 +4,7 @@
     @endpush
     <x-slot:title>{{$title}}</x-slot:title>
     <div class="conten-main">
+        @csrf
         <form action="" method="post">
             <div class="input">
                 <div class="row g-3 justify-content-center">
@@ -50,7 +51,8 @@
                       <th scope="col">Penulis</th>
                       <th scope="col">Publisher</th>
                       <th scope="col">Tahun Terbit</th>
-                      <th scope="col">Category</th>
+                      <th scope="col">Kategori</th>
+                      <th scope="col">Edit</th>
                     </tr>
                   </thead>
             </table>

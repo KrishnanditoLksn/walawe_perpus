@@ -17,7 +17,7 @@
                         <input type="text" class="form-control" placeholder="Email" style="height: 37px;">
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" class="form-control" placeholder="Tanggal dipinjam" style="height: 37px;">
+                        <input type="date" class="form-control" id="date">
                     </div>
                     <div class="col-lg-2">
                         <div class="sub">
@@ -27,5 +27,21 @@
                 </div>
             </div>
         </form>
+        <div class="table-responsive mt-5 ms-3 me-3">
+            <table class="table">
+                <thead class="border">
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Id Peminjaman</th>
+                      <th scope="col">Nama Perminjam</th>
+                      <th scope="col">Telpon</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">tanggal dipijam</th>
+                      <th scope="col">Tahun Terbit</th>
+                      <th scope="col">Category</th>
+                    </tr>
+                  </thead>
+            </table>
+        </div>
     </div>
 </x-layout>

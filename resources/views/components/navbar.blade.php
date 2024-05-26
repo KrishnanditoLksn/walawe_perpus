@@ -8,10 +8,10 @@
     </div>
     <ul class="navbar-nav mt-5">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/home">Daftar Buku</a>
+            <a class="nav-link active" aria-current="page" href="/daftarbuku">Daftar Buku</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/link">Peminjaman</a>
+            <a class="nav-link" href="/peminjaman">Peminjaman</a>
         </li>
     </ul>
 </div>
