@@ -10,12 +10,12 @@ class Book extends Model
 {
     protected $guarded = ['id_buku'];
 
-    protected $fillable = ['judul', 'nama_penulis', 'isbn', 'penerbit', 'tanggal_terbit'];
+    protected $fillable = ['judul', 'nama_penulis', 'isbn', 'penerbit', 'tahun_terbit'];
 
     //Relationship Book to Copy Books
-    public function to_copy(): void
+    public function to_copy(): HasMany
     {
-        
+        return $this->hasMany(Copy_Buku::class);
     }
 
     //Relationship Book to Admin
