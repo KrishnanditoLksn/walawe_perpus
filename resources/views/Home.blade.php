@@ -4,8 +4,8 @@
     @endpush
     <x-slot:title>{{$title}}</x-slot:title>
     <div class="conten-main">
-        @csrf
         <form action="" method="post">
+            @csrf
             <div class="input">
                 <div class="row g-3 justify-content-center">
                     <div class="col-lg-1 container-input">
@@ -26,9 +26,9 @@
                     <div class="col-lg-2">
                         <select class="form-select" id="autoSizingSelect" style="height: 37px;">
                             <option selected >Kategori</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            @for ($i = 1; $i < 10; $i++)
+                            <option value={{$i}}>{{$i}}</option>
+                            @endfor
                         </select>
                     </div>
                     <div class="col-lg-2">
@@ -55,6 +55,19 @@
                       <th scope="col">Edit</th>
                     </tr>
                   </thead>
+                  <tbody>
+                    <tr>
+                      <td>Data 1</td>
+                      <td>Data 2</td>
+                      <td>Data 3</td>
+                      <td>Data 1</td>
+                      <td>Data 2</td>
+                      <td>Data 3</td>
+                      <td>Data 1</td>
+                      <td>Data 2</td>
+                      <td>Data 3</td>
+                      
+                    </tr>
             </table>
         </div>
     </div>
