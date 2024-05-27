@@ -10,8 +10,9 @@ class Peminjaman extends Model
 {
     use HasFactory;
 
-    protected  $guarded=['id_peminjaman'];
-    protected $fillable =['nama_peminjam','no_telp_peminjam','email_peminjam','tanggal_dipinjam'];
+    protected $table = 'peminjaman';
+    protected $guarded = ['id_peminjaman'];
+    protected $fillable = ['nama_peminjam', 'no_telp_peminjam', 'email_peminjam', 'tanggal_dipinjam'];
 
     public function copy_buku(): BelongsTo
     {
