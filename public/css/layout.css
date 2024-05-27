@@ -1,5 +1,6 @@
 body {
-    background-color: aqua;
+    background-color: rgb(175, 241, 234);
+    overflow-x: hidden;
 }
 
 a {
@@ -51,9 +52,4 @@ nav ::after {
 
 .nav-item:hover {
     background-color: lightgray;
-}
-
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-    position: absolute;
 }
