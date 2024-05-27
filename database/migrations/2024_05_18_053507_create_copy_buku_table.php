@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id()->primary();
             $table->bigInteger('id_buku')->unsigned();
             $table->integer('no_copy_buku')->unsigned();
-            $table->foreign('id_buku')->references('id_buku')->on('buku');
+            $table->foreign('id_buku')->references('id')->on('buku');
             $table->timestamps();
         });
     }
