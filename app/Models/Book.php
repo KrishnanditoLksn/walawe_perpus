@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Book extends Model
 {
     protected $guarded = ['id_buku'];
+    protected $table = 'buku';
 
     protected $fillable = ['judul', 'nama_penulis', 'isbn', 'penerbit', 'tahun_terbit'];
 

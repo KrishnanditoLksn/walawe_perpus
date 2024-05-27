@@ -9,6 +9,8 @@ class Admin extends Model
 {
     protected $guarded = ['id'];
 
+    protected $table = 'admin';
+
     protected $fillable = ['nama_admin', 'password', 'email'];
 
     //Relationship antara admin dengan buku
