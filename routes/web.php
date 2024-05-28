@@ -1,15 +1,19 @@
 <?php
 
+use App\Http\Controllers\CategoriController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('/daftarbuku');
 });
 
-Route::get('/daftarbuku', function () {
-    return view('Home', ['title' => 'Laporan']);
-});
 
 Route::get('/peminjaman', function () {
     return view('peminjaman', ['title' => 'Peminjaman']);
 });
+Route::post('/peminjaman', function () {
+    return view('peminjaman', ['title' => 'Peminjaman']);
+});
+
+Route::get('/daftarbuku', [CategoriController::class, 'show']);
+Route::post('/daftarbuku', [CategoriController::class, 'show']);

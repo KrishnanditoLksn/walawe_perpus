@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kategori extends Model
 {
+    protected $table = 'kategori';
     protected $guarded = ['id'];
     protected $fillable = ['nama_kategori'];
 
@@ -16,4 +17,3 @@ class Kategori extends Model
         return $this->hasMany(Book::class);
     }
 }
-
