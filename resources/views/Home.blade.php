@@ -9,31 +9,31 @@
             <div class="input">
                 <div class="row g-3 justify-content-center">
                     <div class="col-lg-1 container-input">
-                        <input type="text" class="form-control" placeholder="Judul" style="height: 37px;">
+                        <input type="text" class="form-control" placeholder="Judul" style="height: 37px;" name="judul">
                     </div>
                     <div class="col-lg-1">
-                        <input type="text" class="form-control" placeholder="ISBN" style="height: 37px;">
+                        <input type="text" class="form-control" placeholder="ISBN" style="height: 37px;" name="isbn">
                     </div>
                     <div class="col-lg-1">
-                        <input type="text" class="form-control" placeholder="Penulis" style="height: 37px;">
+                        <input type="text" class="form-control" placeholder="Penulis" style="height: 37px;" name="penulis">
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" class="form-control" placeholder="Tahun Terbit" style="height: 37px;">
+                        <input type="text" class="form-control" placeholder="Tahun Terbit" style="height: 37px;" name="tahunTerbit">
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" class="form-control" placeholder="Publisher" style="height: 37px;">
+                        <input type="text" class="form-control" placeholder="Publisher" style="height: 37px;" name="publisher">
                     </div>
                     <div class="col-lg-2">
-                        <select class="form-select" id="autoSizingSelect" style="height: 37px;">
+                        <select class="form-select" id="autoSizingSelect" style="height: 37px;" name="kategori">
                             <option selected >Kategori</option>
-                            @for ($i = 1; $i < 10; $i++)
-                            <option value={{$i}}>{{$i}}</option>
-                            @endfor
+                            @foreach ($posts as $item)
+                            <option value = {{$item->id}}>{{$item->nama_kategori}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-lg-2">
                         <div class="sub">
-                            <button type="submit" class="btn btn-primary" style="height: 20px; padding: 0 10px; font-size: 10px; line-height: 20px;">Submit</button>
+                            <button type="submit" class="btn btn-primary" style="height: 37px; padding: 0 10px; font-size: 10px; line-height: 20px;" name="btn-submit">submit</button>
                         </div>
                     </div>
                 </div>
