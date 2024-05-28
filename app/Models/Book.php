@@ -6,11 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property mixed $judul
+ * @property mixed $nama_penulis
+ * @property mixed $isbn
+ * @property mixed $penerbit
+ * @property mixed $tahun_terbit
+ */
 class Book extends Model
 {
     protected $guarded = ['id_buku'];
     protected $table = 'buku';
-
     protected $fillable = ['judul', 'nama_penulis', 'isbn', 'penerbit', 'tahun_terbit'];
 
     //Relationship Book to Copy Books
