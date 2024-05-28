@@ -35,16 +35,16 @@ class BookController extends Controller
         return $request;
     }
 
-//    public function update(Request $request, $id): View
-//    {
-////        $bookToFind = Book::find($id);
-//        $books = $request->all();
-//        $booksAffected = Book::find($id);
-//        $booksAffected->judul = $books['judul'];
-//        $booksAffected->save();
-//        return view('');
-//    }
-//
+    public function update(Request $request, $id): View
+    {
+//        $bookToFind = Book::find($id);
+        $books = $request->all();
+        $booksAffected = Book::find($id);
+        $booksAffected->judul = $books['judul'];
+        $booksAffected->save();
+        return view('');
+    }
+
     public function delete(Request $request, $id)
     {
 
