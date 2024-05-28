@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="css/layout.css">
     @stack('styles')
-    <!-- @vite(['resources/scss/app.scss', 'resources/js/app.js']) -->
 </head>
 
 <body>
