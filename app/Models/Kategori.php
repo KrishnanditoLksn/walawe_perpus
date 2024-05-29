@@ -10,7 +10,6 @@ class Kategori extends Model
     protected $table = 'kategori';
     protected $guarded = ['id'];
     protected $fillable = ['nama_kategori'];
-    protected $table = 'kategori';
 
     //Relationship Kategori dengan Buku
     public function category_rels_book(): HasMany
