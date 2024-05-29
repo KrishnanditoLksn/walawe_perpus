@@ -4,40 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Kategori;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class BookController extends Controller
 {
-    public function store(Request $request): Request
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'judul' => 'required|max:255',
-            'nama_penulis' => 'required|max:255',
-            'isbn' => 'required|max:255',
-            'penerbit' => 'required|max:255',
+            'judul' => 'required',
+            'nama_penulis' => 'required',
+            'isbn' => 'required',
+            'penerbit' => 'required',
             'tahun_terbit' => 'required'
         ]);
-        $kategoris = new Kategori;
         $datas = $request->all();
         /*
 
          */
         $book = new Book;
         $book->judul = $datas['judul'];
-        $book->nama_penulis = $datas['nama_penulis'];
+        $book->nama_penulis = $datas['penulis'];
         $book->isbn = $datas['isbn'];
-        $book->penerbit = $datas['penerbit'];
-        $book->tahun_terbit = $datas['tahun_terbit'];
-        $book->to_kategori()->associate($kategoris);
+        $book->penerbit = $datas['publisher'];
+        $book->tahun_terbit = $datas['tahunTerbit'];
         $book->save();
-        return $request;
+        return redirect('/daftarbuku');
     }
 
     public function update(Request $request, $id): View
     {
-//        $bookToFind = Book::find($id);
         $books = $request->all();
         $booksAffected = Book::find($id);
         $booksAffected->judul = $books['judul'];
@@ -47,12 +45,10 @@ class BookController extends Controller
 
     public function delete(Request $request, $id)
     {
-
     }
 
     public function show(): View
     {
-        $books = DB::table('buku')->get();
-        return view('', ['books' => $books]);
+        return view('Home', ['title' => 'Buku', 'books' => Book::all()]);
     }
 }
