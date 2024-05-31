@@ -32,6 +32,9 @@ class BookController extends Controller
 
     public function update(Request $request, $id): View
     {
+        $request->validate([
+
+        ]);
         $books = $request->all();
         $booksAffected = Book::find($id);
         $booksAffected->judul = $books['judul'];
