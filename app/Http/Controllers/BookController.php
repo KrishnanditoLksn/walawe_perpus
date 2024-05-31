@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\Kategori;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class BookController extends Controller
@@ -15,23 +13,21 @@ class BookController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'nama_penulis' => 'required',
             'isbn' => 'required',
-            'penerbit' => 'required',
-            'tahun_terbit' => 'required'
+            'penulis' => 'required',
+            'tahunTerbit' => 'required',
+            'publisher' => 'required'
         ]);
         $datas = $request->all();
-        /*
-
-         */
         $book = new Book;
         $book->judul = $datas['judul'];
         $book->nama_penulis = $datas['penulis'];
         $book->isbn = $datas['isbn'];
         $book->penerbit = $datas['publisher'];
         $book->tahun_terbit = $datas['tahunTerbit'];
+        $book->id_kategori_buku = $datas['kategori'];
         $book->save();
-        return redirect('/daftarbuku');
+        return redirect('/');
     }
 
     public function update(Request $request, $id): View
