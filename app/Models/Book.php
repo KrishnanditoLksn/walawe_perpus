@@ -12,12 +12,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property mixed $isbn
  * @property mixed $penerbit
  * @property mixed $tahun_terbit
+ * @property mixed $id_kategori_buku
  */
 class Book extends Model
 {
     protected $guarded = ['id_buku'];
     protected $table = 'buku';
-    protected $fillable = ['judul', 'nama_penulis', 'isbn', 'penerbit', 'tahun_terbit'];
+    protected $fillable = ['judul', 'nama_penulis', 'isbn', 'penerbit', 'tahun_terbit', 'id_kategori_buku'];
 
     //Relationship Book to Copy Books
     public function to_copy(): HasMany
