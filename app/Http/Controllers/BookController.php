@@ -46,8 +46,4 @@ class BookController extends Controller
     {
     }
 
-    public function show(): View
-    {
-        return view('Home', ['title' => 'Buku', 'books' => Book::all()]);
-    }
 }
