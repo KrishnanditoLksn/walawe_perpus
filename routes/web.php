@@ -8,12 +8,8 @@ Route::get('/', function () {
     return redirect('/daftarbuku');
 });
 
-
 Route::get('/peminjaman', function () {
-    return view('peminjaman', ['title' => 'PeminjamanKontroller']);
-});
-Route::post('/peminjaman', function () {
-    return view('peminjaman', ['title' => 'PeminjamanKontroller']);
+    return view('peminjaman', ['title' => 'Peminjaman']);
 });
 
 
