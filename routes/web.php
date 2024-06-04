@@ -8,6 +8,8 @@ Route::get('/', function () {
     return redirect('/daftarbuku');
 });
 
+Route::get('/daftarbuku', [PerpustakaanController::class, 'show']);
+
 Route::get('/peminjaman', function () {
     return view('peminjaman', ['title' => 'Peminjaman']);
 });
