@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property Carbon|mixed $tanggal_dikembalikan
+ * @property mixed $tanggal_dipinjam
+ * @property mixed $nama_peminjam
+ * @property mixed $email_peminjam
+ */
 class Peminjaman extends Model
 {
     use HasFactory;
