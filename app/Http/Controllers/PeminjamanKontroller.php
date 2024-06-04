@@ -34,7 +34,8 @@ class PeminjamanKontroller extends Controller
 
     public function show(): RedirectResponse
     {
-        return redirect('');
+        $table = Peminjaman::all();
+        return redirect('/peminjaman');
     }
 
     public function delete()
@@ -44,6 +45,6 @@ class PeminjamanKontroller extends Controller
 
     public function update()
     {
-
+        
     }
 }
