@@ -24,6 +24,6 @@ Route::post('/login', function () {
 
 Route::get('/daftarbuku', [CategoriController::class, 'show']);
 Route::post('/daftarbuku', [CategoriController::class, 'show']);
-Route::get('/login', [CategoriController::class, 'show']);
-Route::post('/login', [CategoriController::class, 'show']);
+//Route::get('/login', [CategoriController::class, 'show']);
+//Route::post('/login', [CategoriController::class, 'show']);
 
