@@ -11,7 +11,3 @@ Route::get('/', function () {
 Route::get('/peminjaman', function () {
     return view('peminjaman', ['title' => 'Peminjaman']);
 });
-
-
-Route::post("tambah-buku",[BookController::class,'store']);
-Route::get('/daftarbuku',[PerpustakaanController::class,'show']);
