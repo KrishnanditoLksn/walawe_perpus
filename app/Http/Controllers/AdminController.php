@@ -17,6 +17,11 @@ class AdminController extends Controller
 
     }
 
+    public function login()
+    {
+
+    }
+
     public function delete()
     {
 
