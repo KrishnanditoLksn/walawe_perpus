@@ -35,16 +35,21 @@ class PeminjamanKontroller extends Controller
     public function show(): RedirectResponse
     {
         $table = Peminjaman::all();
-        return redirect('/peminjaman');
+        $title = "Peminjaman";
+        return redirect('/peminjaman', compact($table, $title));
     }
 
-    public function delete()
+    public function delete($id): RedirectResponse
     {
-
+        $peminjaman = Peminjaman::find($id);
+        if ($peminjaman) {
+            $peminjaman->delete();
+        }
+        return redirect('/peminjaman');
     }
 
     public function update()
     {
-        
+
     }
 }
