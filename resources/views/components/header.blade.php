@@ -3,14 +3,13 @@
         <!-- Offcanvas Trigger Button -->
         <!-- Brand -->
         <a class="navbar-brand" href="#">Perpustakan USD</a>
-        <form id="logout-form" action="{{ route('log') }}" method="POST" style="display: none;">
+        <form id="logout-form" action="" method="POST" style="display: none;">
             @csrf
         </form>
-        
-        <a href="{{ route('log') }}" class="btn btn-danger"
+        <a href="" class="btn btn-danger"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
            Logout
         </a>
-        
+
     </div>
 </nav>
