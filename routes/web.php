@@ -13,7 +13,7 @@ Route::get('/peminjaman', function () {
 });
 Route::post('/peminjaman', function () {
     return view('peminjaman', ['title' => 'Peminjaman']);
-});
+})->name('log');
 
 Route::get('/daftarbuku', [CategoriController::class, 'show']);
 Route::post('/daftarbuku', [CategoriController::class, 'show']);
