@@ -50,19 +50,29 @@
     border: 1px solid black !important;
 }
 
-.table-responsive {
-    width: 30cm !important;
-    overflow-x: auto !important;
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
     .table {
         width: 30cm !important;
-        overflow-x: auto !important;
     }
     .table-responsive {
-        width: 9cm !important;
-        overflow-x: scroll !important;
-        overflow-y: scroll !important;
+        width: 11.5cm !important;
+    }
+    .conten-main {
+        background-color: #FFFFFF;
+        width: 12cm;
+        margin-top: 38px;
+        margin-left: -1.5cm;
+        height: 522px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.5);
+    }
+    .input {
+        margin-left: 2px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .container-input {
+        width: 120px !important;
     }
 }

@@ -53,3 +53,25 @@ nav ::after {
 .nav-item:hover {
     background-color: lightgray;
 }
+
+.mobile-nav {
+    display: none;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        overflow: hidden;
+    }
+    .body-nav {
+        display: none !important;
+    }
+    .mobile-nav {
+        display: block;
+    }
+    .nav-title {
+        width: 500cm !important;
+    }
+    .titlle {
+        align-items: end;
+    }
+}
