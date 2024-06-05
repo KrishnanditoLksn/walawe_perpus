@@ -6,10 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Perpus USD</title>
-  <!-- Css -->
-  <link rel="stylesheet" href="style.css" />
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
 </head>
 
@@ -21,10 +18,10 @@
           <div class="card shadow-2-strong">
             <div class="card-body p-5">
               <div class="text-center mb-4">
-                <img src="logo.USD.png" class="img-fluid" alt="Logo USD" style="max-width: 150px;" />
+                <img src="{{ asset('img/logo.USD.png') }}" class="img-fluid" alt="Logo USD" style="max-width: 150px;" />
               </div>
               <h3 class="mb-3 text-center">LOGIN PERPUS USD</h3>
-              <form method="POST" action="{{ route('log') }}">
+              <form method="POST">
                 @csrf
                 <!-- Username input -->
                 <div class="form-outline mb-4">
