@@ -4,7 +4,7 @@
     @endpush
     <x-slot:title>{{$title}}</x-slot:title>
     <div class="conten-main">
-        <form action="tambah-buku" method="post">
+        <form action="" method="post">
             @csrf
             <div class="input">
                 <div class="row g-3 justify-content-center">
@@ -66,7 +66,6 @@
                       <td>Data 1</td>
                       <td>Data 2</td>
                       <td>Data 3</td>
-
                     </tr>
             </table>
         </div>
