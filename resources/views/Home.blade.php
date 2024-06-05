@@ -4,7 +4,7 @@
     @endpush
     <x-slot:title>{{$title}}</x-slot:title>
     <div class="conten-main">
-        <form id="form-home" action="{{ route('log') }}" method="post">
+        <form id="form-home" action="" method="post">
             @csrf
             <div class="input">
                 <div class="row g-3 justify-content-center">
