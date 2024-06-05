@@ -14,7 +14,7 @@
                         <input type="text" class="form-control" placeholder="Telpon" style="height: 37px;" name="no-telpon-peminjam">
                     </div>
                     <div class="col-lg-1">
-                        <input type="text" class="form-control" placeholder="Email" style="height: 37px;" name="email">
+                        <input type="email" class="form-control" placeholder="Email" style="height: 37px;" name="email">
                     </div>
                     <div class="col-lg-1">
                         <input type="text" class="form-control" placeholder="Judul Buku" style="height: 37px;" name="judul-buku">
@@ -44,6 +44,18 @@
                       <th scope="col">Judul Buku</th>
                     </tr>
                   </thead>
+                  <tbody>
+                    <tr>
+                      <td>Data 1</td>
+                      <td>Data 2</td>
+                      <td>Data 3</td>
+                      <td>Data 1</td>
+                      <td>Data 2</td>
+                      <td>Data 3</td>
+                      <td>Data 1</td>
+                      <td>Data 2</td>
+                    </tr>
+                  </tbody>
             </table>
         </div>
     </div>

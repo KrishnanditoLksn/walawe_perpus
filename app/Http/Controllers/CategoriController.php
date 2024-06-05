@@ -11,6 +11,6 @@ class CategoriController extends Controller
 
     public function show(): View
     {
-        return view('Home', ['title' => 'Laporan', 'posts' => Kategori::all()]);
+        return view('Home', ['title' => 'Daftar Buku', 'posts' => Kategori::all()]);
     }
 }
