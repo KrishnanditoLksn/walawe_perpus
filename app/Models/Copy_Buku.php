@@ -10,6 +10,7 @@ class Copy_Buku extends Model
 {
     protected $guarded = ['id'];
     protected $fillable = ['no_copy_buku'];
+    protected $table = 'copy_books';
 
     public function peminjaman(): HasMany
     {
