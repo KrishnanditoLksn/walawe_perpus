@@ -10,19 +10,19 @@
                     <div class="col-lg-1 container-input">
                         <input type="text" class="form-control" placeholder="Nama" style="height: 37px;" name="nama-peminjam">
                     </div>
-                    <div class="col-lg-1">
+                    <div class="col-lg-1 container-input">
                         <input type="text" class="form-control" placeholder="Telpon" style="height: 37px;" name="no-telpon-peminjam">
                     </div>
-                    <div class="col-lg-1">
+                    <div class="col-lg-1 container-input">
                         <input type="email" class="form-control" placeholder="Email" style="height: 37px;" name="email">
                     </div>
-                    <div class="col-lg-1">
+                    <div class="col-lg-1 container-input">
                         <input type="text" class="form-control" placeholder="Judul Buku" style="height: 37px;" name="judul-buku">
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 container-input">
                         <input type="date" class="form-control" id="date"  name="tanggal-peminjam">
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 container-input">
                         <div class="sub">
                             <button type="submit" class="btn btn-primary" style="height: 37px; padding: 0 10px; font-size: 10px; line-height: 20px;" name="btn-submit">submit</button>
                         </div>
@@ -57,6 +57,8 @@
                     </tr>
                   </tbody>
             </table>
-        </div>
-    </div>
+            </div>
+    @push('scripts')
+    <script src="{{ asset('js/peminjaman.js') }}"></script>
+    @endpush
 </x-layout>
