@@ -7,6 +7,7 @@ use App\Models\Peminjaman;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PeminjamanKontroller extends Controller
 {
@@ -32,11 +33,11 @@ class PeminjamanKontroller extends Controller
         return redirect('/peminjaman');
     }
 
-    public function show(): RedirectResponse
+    public function show(): View
     {
         $table = Peminjaman::all();
         $title = "Peminjaman";
-        return redirect('/peminjaman', compact($table, $title));
+        return view('/peminjaman', compact($table, $title));
     }
 
     public function delete($id): RedirectResponse
