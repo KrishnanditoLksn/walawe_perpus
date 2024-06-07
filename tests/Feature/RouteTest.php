@@ -13,7 +13,6 @@ class RouteTest extends TestCase
     public function it_checks_the_peminjaman_route(): void
     {
         $response = $this->get('/peminjaman');
-
         $response->assertStatus(200);
     }
 
@@ -24,9 +23,15 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-//    public function it_checks_the_login_route(): void
-//    {
-//        $response = $this->get('/login');
-//        $response->assertStatus(404);
-//    }
+    public function it_checks_the_login_route(): void
+    {
+        $response = $this->get('/login');
+        $response->assertStatus(200);
+    }
+
+    // public  function it_checks_the_daftarbuku_post_route(): void
+    // {
+    //     $response = $this->post('/daftarbuku' , ['title'=>'Laporan']);
+    //     $response->assertStatus(200);
+    // }
 }
