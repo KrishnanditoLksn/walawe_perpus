@@ -29,9 +29,9 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // public  function it_checks_the_daftarbuku_post_route(): void
-    // {
-    //     $response = $this->post('/daftarbuku' , ['title'=>'Laporan']);
-    //     $response->assertStatus(200);
-    // }
+    /** @test */
+    public function failed_route()
+    {
+        $response = $this->post('/')->assertStatus(405);
+    }
 }
