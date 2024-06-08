@@ -46,7 +46,7 @@
                   <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Login</button>
                 </div>
               </form>
-              <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Don't have an account? <a href="#!" class="link-danger">Register</a></p>
+              <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Don't have an account? <a href="register" class="link-danger">Register</a></p>
             </div>
           </div>
         </div>
