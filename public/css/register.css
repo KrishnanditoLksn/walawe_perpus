@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.register-container {
+    background: rgba(255, 255, 255, 0.9); /* Warna background dengan transparansi */
+    padding: 30px; /* Padding di dalam kontainer */
+    border-radius: 10px; /* Membuat sudut kontainer lebih melengkung */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Bayangan untuk efek 3D */
+    width: 100%;
+    max-width: 400px; /* Lebar maksimal kontainer */
+}
+
+.register-container h2 {
+    margin-bottom: 30px; /* Margin bawah untuk judul */
+    color: #333; /* Warna teks judul */
+    text-align: center; /* Teks berada di tengah */
+}
+
+.form-control {
+    border-radius: 50px; /* Membuat sudut input melengkung */
+    padding-left: 40px; /* Padding kiri untuk menambahkan ruang bagi ikon */
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.btn-primary {
+    background: #007bff; /* Warna background tombol */
+    border: none; /* Menghilangkan border default */
+    border-radius: 50px; /* Membuat sudut tombol melengkung */
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #0056b3; /* Warna background tombol saat dihover */
+}
