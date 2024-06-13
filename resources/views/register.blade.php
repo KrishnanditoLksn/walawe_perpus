@@ -39,5 +39,7 @@
     <!-- Link ke halaman login -->
     <div class="text-center mt-3">
         <span>Already have an account? </span><a href="login">Login</a>
+    </div>
+</div>
 </body>
 </html>
