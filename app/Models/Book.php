@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Database\Factories\BookFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -36,5 +38,10 @@ class Book extends Model
     public function to_kategori(): BelongsTo
     {
         return $this->belongsTo(Kategori::class);
+    }
+
+    public static function book_factory(): Factory
+    {
+        return BookFactory::new();
     }
 }
