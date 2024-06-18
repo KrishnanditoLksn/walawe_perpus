@@ -13,9 +13,9 @@ class PerpustakaanController extends Controller
         $posts = Kategori::all();
         $books = DB::table('kategori')
             ->join('buku', 'buku.id_kategori_buku', '=', 'kategori.id')
-            ->select('kategori.id', 'kategori.nama_kategori', 'buku.judul' , 'buku.id')
+            ->select('kategori.id', 'kategori.nama_kategori', 'buku.judul', 'buku.id', 'buku.nama_penulis', 'buku.isbn', 'buku.penerbit', 'buku.tahun_terbit')
             ->get();
-        $title = 'Laporan';
+        $title = 'Daftar Buku';
         return view('Home', compact('posts', 'books', 'title'));
     }
 }
