@@ -27,14 +27,12 @@ class BookController extends Controller
         $book->tahun_terbit = $datas['tahunTerbit'];
         $book->id_kategori_buku = $datas['kategori'];
         $book->save();
-        return redirect('/');
+        return redirect('/daftarbuku');
     }
 
     public function update(Request $request, $id): View
     {
-        $request->validate([
-
-        ]);
+        $request->validate([]);
         $books = $request->all();
         $booksAffected = Book::find($id);
         $booksAffected->judul = $books['judul'];
@@ -46,5 +44,4 @@ class BookController extends Controller
     {
         //opo
     }
-
 }
