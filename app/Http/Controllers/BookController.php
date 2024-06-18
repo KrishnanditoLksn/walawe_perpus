@@ -37,11 +37,18 @@ class BookController extends Controller
         $booksAffected = Book::find($id);
         $booksAffected->judul = $books['judul'];
         $booksAffected->save();
-        return view('');
+        return view('/daftarbuku');
     }
 
-    public function delete(Request $request, $id)
+    public function delete($id): RedirectResponse
     {
-        //opo
+        $book = Book::find($id);
+
+        if ($book) {
+            $book->delete();
+            return redirect('/daftarbuku')->with('Sukses');
+        } else {
+            return redirect('/daftarbuku');
+        }
     }
 }

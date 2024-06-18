@@ -7,6 +7,7 @@ use App\Models\Peminjaman;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PeminjamanKontroller extends Controller
 {
@@ -27,16 +28,16 @@ class PeminjamanKontroller extends Controller
         $peminjam->nama_peminjam = $datas['nama-peminjam'];
         $peminjam->no_telp_peminjam = $datas['no-telpon-peminjam'];
         $peminjam->email_peminjam = $datas['email'];
-        $peminjam->tanggal_dipinjam = $datas[''];
+        $peminjam->tanggal_dipinjam = $datas['tanggal-peminjam'];
         $peminjam->tanggal_dikembalikan = Carbon::now()->addDays(30);
         return redirect('/peminjaman');
     }
 
-    public function show(): RedirectResponse
+    public function show(): View
     {
         $table = Peminjaman::all();
         $title = "Peminjaman";
-        return redirect('/peminjaman', compact($table, $title));
+        return view('/peminjaman', compact($table, $title));
     }
 
     public function delete($id): RedirectResponse
