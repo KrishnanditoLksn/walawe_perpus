@@ -25,6 +25,11 @@ Route::get('/register', function () {
 Route::post('/register', function () {
     return view('register', ['title' => 'register']);
 });
+Route::get('/update', function () {
+    return view('update', ['title' => 'update']);
+});
+Route::post('/update', [BookController::class, 'update'])->name('update');
+Route::get('/delete/{id}', [BookController::class, 'delete'])->name('delete');
 Route::get('/daftarbuku', [PerpustakaanController::class, 'show']);
 Route::post('/daftarbuku', [PerpustakaanController::class, 'show']);
 
