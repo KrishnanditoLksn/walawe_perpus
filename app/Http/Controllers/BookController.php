@@ -44,7 +44,14 @@ class BookController extends Controller
 
     public function delete(Request $request, $id)
     {
-        //opo
+        $book = Book::find($id);
+
+        if ($book) {
+            $book->delete();
+            return redirect('/')->with('Sukses', 'Buku berhasil di hapsu.');
+        } else {
+            return redirect('/')->with('Error', 'Buku tidak ditemukan.');
+        }
     }
 
 }
