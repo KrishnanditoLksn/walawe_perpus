@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     //
-    public function store(Request $request)
+    public function registration(Request $request)
     {
 
     }
@@ -28,7 +31,7 @@ class AdminController extends Controller
         }
     }
 
-    public function login()
+    public function login(Request $request): RedirectResponse
     {
         $request->validate([
             'username' => 'required|string',
@@ -38,18 +41,16 @@ class AdminController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
-            
-            return redirect()->intended('/admin/dashboard')->with('Status', 'Login berhasil!');
+            return redirect()->intended('/Home')->with('Status', 'Login basilar!');
         } else {
             return redirect('/login')->with('Error', 'Login gagal, silakan periksa kembali username dan password Anda.');
         }
 
     }
 
-    public function delete()
+    public function delete(Request $request, $id): RedirectResponse
     {
         $admin = Admin::find($id);
-
         if ($admin) {
             $admin->delete();
             return redirect('/admin')->with('Status', 'Admin berhasil dihapus!');
@@ -59,7 +60,7 @@ class AdminController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy(Request $request): RedirectResponse
     {
         Auth::logout();
         $request->session()->invalidate();

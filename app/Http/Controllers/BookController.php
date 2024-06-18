@@ -27,7 +27,7 @@ class BookController extends Controller
         $book->tahun_terbit = $datas['tahunTerbit'];
         $book->id_kategori_buku = $datas['kategori'];
         $book->save();
-        return redirect('/');
+        return redirect('/daftarbuku');
     }
 
     public function update(Request $request, $id): View
@@ -39,10 +39,10 @@ class BookController extends Controller
         $booksAffected = Book::find($id);
         $booksAffected->judul = $books['judul'];
         $booksAffected->save();
-        return view('');
+        return view('/daftarbuku');
     }
 
-    public function delete(Request $request, $id)
+    public function delete(Request $request, $id): RedirectResponse
     {
         $book = Book::find($id);
 
