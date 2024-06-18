@@ -14,15 +14,16 @@ class AdminController extends Controller
     public function register(Request $request): RedirectResponse
     {
         $request->validate([
-            'username' => 'required|string|max:255|unique:admins,username',
-            'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|max:255',
+            'password' => 'required|string|min:6',
+            'email' => 'required|email'
         ]);
 
         $admin = new Admin();
         $admin->nama_admin = $request->input('username');
         $admin->password = Hash::make($request->input('password'));
+        $admin->email = $request->input('email');
         $admin->save();
-
         return redirect('/login');
     }
 
