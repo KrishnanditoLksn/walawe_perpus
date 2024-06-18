@@ -42,15 +42,15 @@ class BookController extends Controller
         return view('/daftarbuku');
     }
 
-    public function delete(Request $request, $id): RedirectResponse
+    public function delete($id): RedirectResponse
     {
         $book = Book::find($id);
 
         if ($book) {
             $book->delete();
-            return redirect('/')->with('Sukses', 'Buku berhasil di hapsu.');
+            return redirect('/daftarbuku')->with('Sukses');
         } else {
-            return redirect('/')->with('Error', 'Buku tidak ditemukan.');
+            return redirect('/daftarbuku');
         }
     }
 
