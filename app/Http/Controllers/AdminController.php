@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     //
-    public function registration(Request $request)
+    public function store(Request $request): RedirectResponse
     {
+        $request->validate([
+            'username' => 'required|string|max:255|unique:admins,username',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
 
+        $admin = new Admin();
+        $admin->username = $request->input('username');
+        $admin->password = Hash::make($request->input('password'));
+        $admin->save();
+
+        return redirect('/admin')->with('status', 'Admin baru berhasil ditambahkan!');
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -31,42 +38,44 @@ class AdminController extends Controller
         }
     }
 
-    public function login(Request $request): RedirectResponse
+    public function login(Request $request)
     {
-        $request->validate([
-            'username' => 'required|string',
-            'password' => 'required|string'
-        ]);
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'username' => 'required|string|max:255',
+                'password' => 'required|string|min:6',
+            ]);
 
-        $credentials = $request->only('username', 'password');
+            $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/Home')->with('Status', 'Login basilar!');
-        } else {
-            return redirect('/login')->with('Error', 'Login gagal, silakan periksa kembali username dan password Anda.');
+            if (Auth::guard('admin')->attempt($credentials)) {
+                return redirect('/admin')->with('status', 'Login berhasil!');
+            } else {
+                return redirect('/login')->with('error', 'Username atau password salah!');
+            }
         }
 
+        return view('auth.login');
     }
 
     public function delete(Request $request, $id): RedirectResponse
     {
+        $request->validate([
+            'confirm' => 'required|in:yes'
+        ]);
+
         $admin = Admin::find($id);
         if ($admin) {
             $admin->delete();
-            return redirect('/admin')->with('Status', 'Admin berhasil dihapus!');
+            return redirect('/admin')->with('status', 'Admin berhasil dihapus!');
         } else {
-            return redirect('/admin')->with('Error', 'Admin tidak ditemukan!');
+            return redirect('/admin')->with('error', 'Admin tidak ditemukan!');
         }
-
     }
 
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(): RedirectResponse
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login')->with('status', 'Logout berhasil!');
-
+        Auth::logout(); // Logout admin
+        return redirect('/login')->with('status', 'Anda telah logout!');
     }
 }
