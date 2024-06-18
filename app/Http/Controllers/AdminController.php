@@ -23,7 +23,7 @@ class AdminController extends Controller
         $admin->password = Hash::make($request->input('password'));
         $admin->save();
 
-        return redirect('/daftarbuku');
+        return redirect('/login');
     }
 
     public function update(Request $request, $id): RedirectResponse
