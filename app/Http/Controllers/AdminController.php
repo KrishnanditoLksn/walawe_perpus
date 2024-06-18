@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
     //
-    public function store(Request $request): RedirectResponse
+    public function register(Request $request): RedirectResponse
     {
         $request->validate([
             'username' => 'required|string|max:255|unique:admins,username',
@@ -15,11 +19,11 @@ class AdminController extends Controller
         ]);
 
         $admin = new Admin();
-        $admin->username = $request->input('username');
+        $admin->nama_admin = $request->input('username');
         $admin->password = Hash::make($request->input('password'));
         $admin->save();
 
-        return redirect('/admin')->with('status', 'Admin baru berhasil ditambahkan!');
+        return redirect('/daftarbuku');
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -38,24 +42,21 @@ class AdminController extends Controller
         }
     }
 
-    public function login(Request $request)
+    public function login(Request $request): RedirectResponse
     {
-        if ($request->isMethod('post')) {
-            $request->validate([
-                'username' => 'required|string|max:255',
-                'password' => 'required|string|min:6',
-            ]);
-
-            $credentials = $request->only('username', 'password');
-
-            if (Auth::guard('admin')->attempt($credentials)) {
-                return redirect('/admin')->with('status', 'Login berhasil!');
-            } else {
-                return redirect('/login')->with('error', 'Username atau password salah!');
-            }
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'password' => 'required|string|min:6',
+        ]);
+        $datas = $request->except(['_token']);
+        if (Auth::attempt($datas)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/daftarbuku');
         }
-
-        return view('auth.login');
+        return back()->withErrors([
+            'name' => 'The provided name do not match our records.',
+            'password' => 'The provided password do not match our records.'
+        ])->onlyInput('email');
     }
 
     public function delete(Request $request, $id): RedirectResponse
@@ -73,7 +74,7 @@ class AdminController extends Controller
         }
     }
 
-    public function destroy(): RedirectResponse
+    public function logout(): RedirectResponse
     {
         Auth::logout(); // Logout admin
         return redirect('/login')->with('status', 'Anda telah logout!');
