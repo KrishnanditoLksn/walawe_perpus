@@ -5,59 +5,52 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
-  <!-- Css -->
-  <link rel="stylesheet" href="style.css" />
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+  <title>Login Perpus USD</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
 </head>
 
 <body>
-  <section class="vh-100">
-    <div class="container-fluid h-custom">
+  <section class="vh-100 bg-light">
+    <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="fotoLogin.jpeg" class="img-fluid" alt="Sample image" />
-        </div>
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <!--  -->
-          <form method="POST" action="">
-            <!-- Username input -->
-            <div class="form-outline mb-4">
-              <label class="form-label" for="login-username">Username</label>
-              <input type="text" id="login-username" class="form-control form-control-lg" name="username" value=""
-                placeholder="Enter username" />
-            </div>
-
-            <!-- Password input -->
-            <div class="form-outline mb-3">
-              <label class="form-label" for="login-password">Password</label>
-              <input type="password" id="login-password" class="form-control form-control-lg" name="password" value=""
-                placeholder="Enter password" />
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center">
-              <!-- Checkbox -->
-              <div class="form-check mb-0">
-                <input class="form-check-input me-2" type="checkbox" name="remember" value="1" id="login-remember" />
-                <label class="form-check-label" for="login-remember"> Remember me </label>
+        <div class="col-md-8 col-lg-6 col-xl-4">
+          <div class="card shadow-2-strong">
+            <div class="card-body p-5">
+              <div class="text-center mb-4">
+                <img src="{{ asset('img/logo.USD.png') }}" class="img-fluid" alt="Logo USD" style="max-width: 150px;" />
               </div>
-            </div>
+              <h3 class="mb-3 text-center">LOGIN PERPUS USD</h3>
+              <form method="POST">
+                @csrf
+                <!-- Username input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="login-username">Username</label>
+                  <input type="text" id="login-username" class="form-control form-control-lg" name="username" placeholder="Enter username" required />
+                </div>
 
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="submit" name="submit" class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem">Login</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                  class="link-danger">Register</a></p>
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                  <label class="form-label" for="login-password">Password</label>
+                  <input type="password" id="login-password" class="form-control form-control-lg" name="password" placeholder="Enter password" required />
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start mb-4">
+                  <input class="form-check-input" type="checkbox" name="remember" value="1" id="login-remember" />
+                  <label class="form-check-label ms-2" for="login-remember"> Remember me </label>
+                </div>
+
+                <!-- Submit button -->
+                <div class="d-grid">
+                  <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                </div>
+              </form>
+              <p class="small fw-bold mt-2 pt-1 mb-0 text-center">Don't have an account? <a href="register" class="link-danger">Register</a></p>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-      <!-- Copyright -->
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
