@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -14,11 +15,14 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         //
-        $admins = [
-            ['id' => 1, 'nama_admin' => 'admin1', 'password' => 'admin123', 'email' => 'admin1@gmail.com'],
-            ['id' => 2, 'nama_admin' => 'admin2', 'password' => 'admin456', 'email' => 'admin2@gmail.com'],
-            ['id' => 3, 'nama_admin' => 'admin3', 'password' => 'admin789', 'email' => 'admin3@gmail.com'],
+        $users = [
+            [
+                'name' => 'User Aldi',
+                'email' => 'user1@example.com',
+                'password' => Hash::make('123456'),
+            ],
+            // Anda dapat menambahkan data user lainnya di sini
         ];
-        DB::table('admin')->insert($admins);
+        DB::table('users')->insert($users);
     }
 }
