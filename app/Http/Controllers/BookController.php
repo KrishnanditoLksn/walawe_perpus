@@ -29,15 +29,33 @@ class BookController extends Controller
         $book->save();
         return redirect('/daftarbuku');
     }
-
-    public function update(Request $request, $id): View
+    public function edit($id)
     {
-        $request->validate([]);
-        $books = $request->all();
-        $booksAffected = Book::find($id);
-        $booksAffected->judul = $books['judul'];
-        $booksAffected->save();
-        return view('/daftarbuku');
+        $book = Book::findOrFail($id);
+        return view('edit', compact('book'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'isbn' => 'required',
+            'penulis' => 'required',
+            'tahunTerbit' => 'required',
+            'publisher' => 'required',
+        ]);
+
+        $book = Book::findOrFail($id);
+        $book->judul = $request->judul;
+        $book->isbn = $request->isbn;
+        $book->nama_penulis = $request->penulis;
+        $book->penerbit = $request->publisher;
+        $book->tahun_terbit = $request->tahunTerbit;
+        $book->id_kategori_buku = $request->kategori;
+        $book->save();
+
+        // Redirect with success message or to the page with book list
+        return redirect('/daftarbuku')->with('success', 'Buku berhasil diperbarui.');
     }
 
     public function delete($id): RedirectResponse
