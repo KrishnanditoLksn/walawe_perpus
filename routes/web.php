@@ -31,9 +31,6 @@ Route::get('/daftarbuku', [PerpustakaanController::class, 'show']);
 Route::post('/daftarbuku', [PerpustakaanController::class, 'show']);
 
 Route::post('/daftarbuku', [BookController::class, 'store'])->name('log');
-Route::post('/logout', function () {
-    return redirect('/login');
-})->name('logout');
-//
+Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
 Route::post('/register', [AdminController::class, 'register'])->name('reg');
 Route::post('/login', [AdminController::class, 'login'])->name('login');
