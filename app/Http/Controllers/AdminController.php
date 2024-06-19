@@ -76,9 +76,11 @@ class AdminController extends Controller
         }
     }
 
-    public function logout(): RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
-        Auth::logout(); // Logout admin
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/login')->with('status', 'Anda telah logout!');
     }
 }

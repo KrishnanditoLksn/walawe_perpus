@@ -12,20 +12,16 @@ Route::get('/peminjaman', function () {
     return view('peminjaman', ['title' => 'Peminjaman']);
 });
 Route::post('/peminjaman', function () {
-    return  view('peminjaman', ['title' => 'Peminjaman']);
+    return view('peminjaman', ['title' => 'Peminjaman']);
 });
 Route::get('/login', function () {
     return view('login', ['title' => 'login ']); // login adalah nama file blade untuk halaman login, sesuaikan dengan nama file Anda
 });
-Route::post('/login', function () {
-    return view('login', ['title' => 'login ']); // login adalah nama file blade untuk halaman login, sesuaikan dengan nama file Anda
-});
+Route::post('/login', [AdminController::class, 'login'])->name('login');
 Route::get('/register', function () {
     return view('register', ['title' => 'register']);
 });
-Route::post('/register', function () {
-    return view('register', ['title' => 'register']);
-});
+Route::post('/register', [AdminController::class, 'register'])->name('reg');
 Route::get('/update', function () {
     return view('update', ['title' => 'update']);
 });
