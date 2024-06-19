@@ -20,7 +20,7 @@ class Peminjaman extends Model
 
     protected $table = 'peminjaman';
     protected $guarded = ['id_peminjaman'];
-    protected $fillable = ['nama_peminjam', 'no_telp_peminjam', 'email_peminjam', 'tanggal_dipinjam'];
+    protected $fillable = ['nama_peminjam', 'no_telp_peminjam', 'email_peminjam', 'tanggal_dipinjam', 'tanggal_dikembalikan', 'status_peminjaman'];
 
     public function copy_buku(): BelongsTo
     {
