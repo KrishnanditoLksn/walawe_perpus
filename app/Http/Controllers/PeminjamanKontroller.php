@@ -30,6 +30,7 @@ class PeminjamanKontroller extends Controller
         $peminjam->email_peminjam = $datas['email'];
         $peminjam->tanggal_dipinjam = $datas['tanggal-peminjam'];
         $peminjam->tanggal_dikembalikan = Carbon::now()->addDays(30);
+        $peminjam->save();
         return redirect('/peminjaman');
     }
 
