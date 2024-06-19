@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-lg-2 container-input">
                         <select class="form-select" id="autoSizingSelect" style="height: 37px;" name="kategori">
-                            <option value="kategori" selected >kategori</option>
+                            <option value="kategori" selected>kategori</option>
                             @foreach ($posts as $item)
                             <option value="{{$item->id}}">{{$item->nama_kategori}}</option>
                             @endforeach
@@ -74,10 +74,10 @@
                             <td>{{ $item->tahun_terbit }}</td>
                             <td>{{ $item->nama_kategori }}</td>
                             <td>
-                            <button class="btn btn-secondary" onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->judul) }}', '{{ addslashes($item->isbn) }}', '{{ addslashes($item->nama_penulis) }}', '{{ addslashes($item->penerbit) }}', '{{ $item->tahun_terbit }}', '{{ isset($item->kategori_id) ? $item->kategori_id : '' }}')">
-                            <i class="fas fa-edit"></i>
-                            </button>
-                                <form action="{{ route('delete', ['id' => $item->id]) }} method="POST" style="display:inline;">
+                                <button class="btn btn-secondary" onclick="openEditModal('{{ $item->id }}', '{{ addslashes($item->judul) }}', '{{ addslashes($item->isbn) }}', '{{ addslashes($item->nama_penulis) }}', '{{ addslashes($item->penerbit) }}', '{{ $item->tahun_terbit }}', '{{ isset($item->kategori_id) ? $item->kategori_id : '' }}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <form action="{{ route('delete', ['id' => $item->id]) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">
@@ -93,7 +93,7 @@
     </div>
 
     <!-- Modal -->
-    <div id="editModal" style="display:none;">
+    <div id="editModal" style="display:none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4);">
         <div style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%;">
             <span onclick="closeEditModal()" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
             <form id="form-edit" action="{{ route('update') }}" method="post">
