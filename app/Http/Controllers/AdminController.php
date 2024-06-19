@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,15 +15,16 @@ class AdminController extends Controller
     public function register(Request $request): RedirectResponse
     {
         $request->validate([
-            'username' => 'required|string|max:255|unique:admins,username',
-            'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|max:255',
+            'password' => 'required|string|min:6',
+            'email' => 'required|email'
         ]);
 
-        $admin = new Admin();
-        $admin->nama_admin = $request->input('username');
+        $admin = new User();
+        $admin->name = $request->input('username');
         $admin->password = Hash::make($request->input('password'));
+        $admin->email = $request->input('email');
         $admin->save();
-
         return redirect('/login');
     }
 
@@ -32,7 +34,7 @@ class AdminController extends Controller
             'name' => 'required|string|max:255'
         ]);
 
-        $admin = Admin::find($id);
+        $admin = User::find($id);
         if ($admin) {
             $admin->name = $request->input('name');
             $admin->save();
@@ -45,10 +47,10 @@ class AdminController extends Controller
     public function login(Request $request): RedirectResponse
     {
         $request->validate([
-            'username' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'password' => 'required|string|min:6',
         ]);
-        $datas = $request->except(['_token']);
+        $datas = $request->only('name', 'password');
         if (Auth::attempt($datas)) {
             $request->session()->regenerate();
             return redirect()->intended('/daftarbuku');
@@ -65,7 +67,7 @@ class AdminController extends Controller
             'confirm' => 'required|in:yes'
         ]);
 
-        $admin = Admin::find($id);
+        $admin = User::find($id);
         if ($admin) {
             $admin->delete();
             return redirect('/admin')->with('status', 'Admin berhasil dihapus!');
@@ -74,9 +76,11 @@ class AdminController extends Controller
         }
     }
 
-    public function logout(): RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
-        Auth::logout(); // Logout admin
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/login')->with('status', 'Anda telah logout!');
     }
 }
