@@ -37,53 +37,5 @@ Route::post('/daftarbuku', [BookController::class, 'store'])->name('log');
 Route::post('/logout', function () {
     return redirect('/login');
 })->name('logout');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/books/{id}/edit', [BookController::class, 'edit'])->name('books.edit');
 Route::put('/books/{id}', [BookController::class, 'update'])->name('books.update');
-
-

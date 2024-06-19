@@ -44,7 +44,7 @@ class BookController extends Controller
             'tahunTerbit' => 'required',
             'publisher' => 'required',
         ]);
-    
+
         $book = Book::findOrFail($id);
         $book->judul = $request->judul;
         $book->isbn = $request->isbn;
@@ -53,7 +53,7 @@ class BookController extends Controller
         $book->tahun_terbit = $request->tahunTerbit;
         $book->id_kategori_buku = $request->kategori;
         $book->save();
-    
+
         // Redirect with success message or to the page with book list
         return redirect('/daftarbuku')->with('success', 'Buku berhasil diperbarui.');
     }
