@@ -16,7 +16,7 @@
 <div class="register-container">
     <h2>Register</h2>
     <!-- Form registrasi -->
-    <form method="post">
+    <form method="post" action="{{route('reg')}}">
         @csrf <!-- Blade directive untuk menambahkan token CSRF -->
         <!-- Field untuk username -->
         <div class="mb-3 input-icon">
@@ -34,7 +34,7 @@
             <input type="password" name="password" class="form-control" placeholder="Password" required>
         </div>
         <!-- Tombol submit -->
-        <button type="submit" class="btn btn-primary w-100">Register</button>
+        <button type="submit"  class="btn btn-primary w-100">Register</button>
     </form>
     <!-- Link ke halaman login -->
     <div class="text-center mt-3">
