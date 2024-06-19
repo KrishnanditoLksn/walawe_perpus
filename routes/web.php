@@ -28,7 +28,7 @@ Route::post('/register', function () {
 Route::get('/update', function () {
     return view('update', ['title' => 'update']);
 });
-Route::post('/update', [BookController::class, 'update'])->name('update');
+Route::put('/update/{id}', [BookController::class, 'update'])->name('update'); // Perubahan di sini
 Route::get('/delete/{id}', [BookController::class, 'delete'])->name('delete');
 Route::get('/daftarbuku', [PerpustakaanController::class, 'show']);
 Route::post('/daftarbuku', [PerpustakaanController::class, 'show']);
@@ -37,3 +37,5 @@ Route::post('/daftarbuku', [BookController::class, 'store'])->name('log');
 Route::post('/logout', function () {
     return redirect('/login');
 })->name('logout');
+Route::get('/books/{id}/edit', [BookController::class, 'edit'])->name('books.edit');
+Route::put('/books/{id}', [BookController::class, 'update'])->name('books.update');
