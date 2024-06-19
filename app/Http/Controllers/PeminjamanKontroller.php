@@ -49,8 +49,13 @@ class PeminjamanKontroller extends Controller
         return redirect('/peminjaman');
     }
 
-    public function update()
+    public function update(Request $request, $id): RedirectResponse
     {
+        $request->validate([
 
+        ]);
+        $affected = Peminjaman::find($id);
+
+        return redirect('');
     }
 }
