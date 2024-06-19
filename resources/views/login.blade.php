@@ -21,17 +21,17 @@
                 <img src="{{ asset('img/logo.USD.png') }}" class="img-fluid" alt="Logo USD" style="max-width: 150px;" />
               </div>
               <h3 class="mb-3 text-center">LOGIN PERPUS USD</h3>
-              <form method="POST">
+              <form method="post" action="{{route('login')}}">
                 @csrf
                 <!-- Username input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="login-username">Username</label>
-                  <input type="text" id="login-username" class="form-control form-control-lg" name="username" placeholder="Enter username" required />
+                  <label class="form-label" for="name">Username</label>
+                  <input type="text" id="login-username" class="form-control form-control-lg" name="name" placeholder="Enter username" required />
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-3">
-                  <label class="form-label" for="login-password">Password</label>
+                  <label class="form-label" for="password">Password</label>
                   <input type="password" id="login-password" class="form-control form-control-lg" name="password" placeholder="Enter password" required />
                 </div>
 
