@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property mixed $nama_peminjam
  * @property mixed $email_peminjam
  * @property mixed $no_telp_peminjam
+ * @property mixed $id_judul_buku
  */
 class Peminjaman extends Model
 {
