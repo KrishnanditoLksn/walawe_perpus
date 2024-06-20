@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string('nama_peminjam');
             $table->char('no_telp_peminjam', '12');
             $table->string('email_peminjam');
+            $table->unsignedBigInteger('id_judul_buku');
             $table->date('tanggal_dipinjam')->nullable();
             $table->timestamp('tanggal_dikembalikan')->useCurrent();
             $table->string('status_peminjaman')->default('Dipinjam');
+            $table->foreign('id_judul_buku')->references('id')->on('buku');
             $table->timestamps();
         });
     }

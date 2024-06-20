@@ -16,6 +16,7 @@ class PeminjamanSeeder extends Seeder
                 'nama_peminjam' => 'Peminjam Aldi',
                 'no_telp_peminjam' => '081234567890',
                 'email_peminjam' => 'peminjam1@example.com',
+                'id_judul_buku' => 1,
                 'tanggal_dipinjam' => Carbon::now(),
                 'tanggal_dikembalikan' => Carbon::now()->addDays(30)->format('Y-m-d'),
                 'status_peminjaman' => 'Dipinjam',
