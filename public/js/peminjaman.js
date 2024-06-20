@@ -1,19 +1,22 @@
-let btnSubmit = document.querySelector('button[name="btn-submit"]');
+document.addEventListener('DOMContentLoaded', function() {
+    let form = document.getElementById('form-pinjam');
 
-btnSubmit.addEventListener('click', function(event) {
-    event.preventDefault();
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
+        const judul = document.querySelector('select[name="Judul"]').value;
+        const namaPeminjam = document.querySelector('input[name="nama-peminjam"]').value;
+        const noTelpon = document.querySelector('input[name="no-telpon-peminjam"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const tanggalPeminjam = document.querySelector('input[name="tanggal-peminjam"]').value;
 
-    const judul = document.querySelector('input[name="nama-peminjam"]').value;
-    const Isbn = document.querySelector('input[name="no-telpon-peminjam"]').value;
-    const penulis = document.querySelector('input[name="email"]').value;
-    const tahunTerbit = document.querySelector('input[name="judul-buku"]').value;
-    const Publisher = document.querySelector('input[name="tanggal-peminjam"]').value;
+        // Validasi semua kolom harus diisi
+        if (judul === 'kategori' || namaPeminjam === '' || noTelpon === '' || email === '' || tanggalPeminjam === '') {
+            alert('Semua kolom harus diisi');
+            return;
+        }
 
-
-    if ((judul == '' || Isbn == '' || penulis == '' || tahunTerbit == '' || Publisher == '') || kategori == 'kategori') {
-        alert('Semua kolom harus diisi');
-    } else {
-        document.getElementById('form-home').submit();
-    }
+        // Submit form jika validasi berhasil
+        form.submit();
+    });
 });

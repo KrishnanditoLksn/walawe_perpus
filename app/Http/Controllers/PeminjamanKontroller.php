@@ -33,11 +33,11 @@ class PeminjamanKontroller extends Controller
         return redirect('/peminjaman');
     }
 
-    public function show(): View
+    public function show()
     {
         $table = Peminjaman::all();
         $title = "Peminjaman";
-        return view('/peminjaman', compact($table, $title));
+        return compact('table', 'title');
     }
 
     public function delete($id): RedirectResponse
@@ -51,9 +51,7 @@ class PeminjamanKontroller extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $request->validate([
-
-        ]);
+        $request->validate([]);
         $affected = Peminjaman::find($id);
 
         return redirect('');

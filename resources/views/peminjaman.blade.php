@@ -4,7 +4,8 @@
     @endpush
     <x-slot:title>{{ $title }}</x-slot:title>
     <div class="conten-main">
-        <form action="" method="post">
+        <form id="form-pinjam" action="{{ route('pinjam') }}" method="post">
+            @csrf
             <div class="input">
                 <div class="row g-3 justify-content-center">
                     <div class="col-lg-1 container-input">
@@ -19,9 +20,13 @@
                         <input type="email" class="form-control" placeholder="Email" style="height: 37px;"
                             name="email">
                     </div>
-                    <div class="col-lg-1 container-input">
-                        <input type="text" class="form-control" placeholder="Judul Buku" style="height: 37px;"
-                            name="judul-buku">
+                    <div class="col-lg-2 container-input">
+                        <select class="form-select" id="autoSizingSelect" style="height: 37px;" name="Judul">
+                            <option value="kategori" selected>Judul</option>
+                            @foreach ($books as $item)
+                                <option value="{{ $item->id }}">{{ $item->judul }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-lg-2 container-input">
                         <input type="date" class="form-control" id="date" name="tanggal-peminjam">
@@ -53,18 +58,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($collection as $item) --}}
-                    <tr>
-                        <td>Data 1</td>
-                        <td>Data 2</td>
-                        <td>Data 3</td>
-                        <td>Data 1</td>
-                        <td>Data 2</td>
-                        <td>Data 3</td>
-                        <td>Data 1</td>
-                        <td>Data 2</td>
-                    </tr>
-                    {{-- @endforeach --}}
+                    @php
+                        $no = 0;
+                    @endphp
+                    @foreach ($table as $item)
+                        @php
+                            $no++;
+                        @endphp
+                        <tr>
+                            <td>{{ $no }}</td>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->nama_peminjam }}</td>
+                            <td>{{ $item->no_telp_peminjam }}</td>
+                            <td>{{ $item->email_peminjam }}</td>
+                            <td>{{ $item->tanggal_dipinjam }}</td>
+                            <td>{{ $item->tanggal_dikembalikan }}</td>
+                            <td>book</td>
+                            <td>{{ $item->status_peminjaman }}<< /td>
+                            <td>
+                                <button class="btn btn-secondary"
+                                    onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->judul) }}', '{{ addslashes($item->isbn) }}', '{{ addslashes($item->nama_penulis) }}', '{{ addslashes($item->penerbit) }}', '{{ $item->tahun_terbit }}', '{{ isset($item->kategori_id) ? $item->kategori_id : '' }}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <form action="{{ route('delete', ['id' => $item->id]) }} method="POST"
+                                    style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
