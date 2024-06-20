@@ -7,6 +7,7 @@ use App\Models\Peminjaman;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class PeminjamanKontroller extends Controller
@@ -37,7 +38,10 @@ class PeminjamanKontroller extends Controller
 
     public function show()
     {
-        $table = Peminjaman::all();
+        $table = DB::table('peminjaman')
+            ->join('buku', 'peminjaman.id_judul_buku', '=', 'buku.id')
+            ->select('peminjaman.id', 'peminjaman.nama_peminjam', 'peminjaman.no_telp_peminjam', 'peminjaman.email_peminjam', 'buku.judul', 'peminjaman.tanggal_dipinjam', DB::raw('DATE(peminjaman.tanggal_dikembalikan) as tanggal_dikembalikan'), 'peminjaman.status_peminjaman')
+            ->get();
         $title = "Peminjaman";
         return compact('table', 'title');
     }
