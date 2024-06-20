@@ -18,7 +18,7 @@ class PeminjamanKontroller extends Controller
             'nama-peminjam' => 'required',
             'no-telpon-peminjam' => 'required',
             'email' => 'required',
-            'judul-buku' => 'required',
+            'Judul' => 'required',
             'tanggal-peminjam' => 'required'
         ]);
 
@@ -28,7 +28,7 @@ class PeminjamanKontroller extends Controller
         $peminjam->nama_peminjam = $datas['nama-peminjam'];
         $peminjam->no_telp_peminjam = $datas['no-telpon-peminjam'];
         $peminjam->email_peminjam = $datas['email'];
-        $peminjam->id_judul_buku = $datas['judul-buku'];
+        $peminjam->id_judul_buku = $datas['Judul'];
         $peminjam->tanggal_dipinjam = $datas['tanggal-peminjam'];
         $peminjam->tanggal_dikembalikan = Carbon::now()->addDays(30);
         $peminjam->save();
