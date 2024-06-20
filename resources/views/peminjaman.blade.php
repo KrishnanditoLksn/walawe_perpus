@@ -73,11 +73,11 @@
                             <td>{{ $item->email_peminjam }}</td>
                             <td>{{ $item->tanggal_dipinjam }}</td>
                             <td>{{ $item->tanggal_dikembalikan }}</td>
-                            <td>book</td>
-                            <td>{{ $item->status_peminjaman }}<< /td>
+                            <td>{{$item->judul}}</td>
+                            <td>{{ $item->status_peminjaman }}
                             <td>
-                                <button class="btn btn-secondary"
-                                    onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->judul) }}', '{{ addslashes($item->isbn) }}', '{{ addslashes($item->nama_penulis) }}', '{{ addslashes($item->penerbit) }}', '{{ $item->tahun_terbit }}', '{{ isset($item->kategori_id) ? $item->kategori_id : '' }}')">
+                                <button class="btn btn-secondary">
+{{--                                    onclick=    "openEditModal({{ $item->id }}, '{{ addslashes($item->judul) }}', '{{ addslashes($item->isbn) }}', '{{ addslashes($item->nama_penulis) }}', '{{ addslashes($item->penerbit) }}', '{{ $item->tahun_terbit }}', '{{ isset($item->kategori_id) ? $item->kategori_id : '' }}')">--}}
                                     <i class="fas fa-edit"></i>
                                 </button>
                                 <form action="{{ route('delete', ['id' => $item->id]) }} method="POST"
